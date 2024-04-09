@@ -22,13 +22,14 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(ejsLayouts);
 
 // Routes start here
 app.get("/reminders", reminderController.list);
+app.get("/admin", reminderController.admin);
 app.get("/reminder/new", reminderController.new);
 app.get("/reminder/:id", reminderController.listOne);
 app.get("/reminder/:id/edit", reminderController.edit);
