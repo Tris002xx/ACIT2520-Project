@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const router = express.Router();
 const session = require("express-session");
 const path = require("path");
 const ejsLayouts = require("express-ejs-layouts");
@@ -35,6 +36,7 @@ app.get("/reminder/:id", reminderController.listOne);
 app.get("/reminder/:id/edit", reminderController.edit);
 app.post("/reminder/", reminderController.create);
 app.post("/reminder/delete_session/:id", reminderController.delete_session);
+app.get("/logout", reminderController.logout);
 
 // ⭐ Implement these two routes below!
 app.post("/reminder/update/:id", reminderController.update);

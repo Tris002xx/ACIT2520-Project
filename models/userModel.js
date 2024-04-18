@@ -17,20 +17,20 @@ const database = [
       title: "Feed the dog",
       description: "Feed the dog before 8pm",
       completed: false,
-      banner: ""
+      banner: "water"
     },
     {
       id: "2",
       title: "Walk the dog",
       description: "Walk the dog before 10pm",
       completed: false,
-      banner: ""
+      banner: "phone"
     }, {
       id: "3",
       title: "Pet the dog",
       description: "Feed the dog before 11pm",
       completed: false,
-      banner: ""
+      banner: "grass"
     }],
     role: "user"
   },
@@ -44,20 +44,20 @@ const database = [
       title: "Feed the cat",
       description: "Feed the cat before 8pm",
       completed: false,
-      banner: ""
+      banner: "cat"
     },
     {
       id: "2",
       title: "Walk the cat",
       description: "Walk the cat before 10pm",
       completed: false,
-      banner: ""
+      banner: "car"
     }, {
       id: "3",
       title: "Pet the cat",
       description: "Feed the cat before 11pm",
       completed: false,
-      banner: ""
+      banner: "spy"
     }],
     role: "user"
   },

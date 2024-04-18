@@ -1,5 +1,13 @@
 const { session, use } = require("passport");
 
+async function keywordtoImage(keyword){
+  const url= `https://api.unsplash.com/search/photos?page=1&query=${keyword}&client_id=wBg-GsJRbcsk66BOM6omEXopj-wqnHjIcHueHBiQcIY`
+  const response = (await fetch(url));
+  const data = await response.json();
+  console.log(data)
+  return data.results[0].urls.regular;
+}
+
 let database = require("../models/userModel").database;
 // const session = require("express-session");
 let remindersController = {
@@ -36,28 +44,31 @@ let remindersController = {
     });
   },
 
-
   new: (req, res) => {
     res.render("reminder/create", { user: req.user });
   },
 
-  listOne: (req, res) => {
+  listOne: async (req, res) => {
     if (req.user.reminders.length > 0) {
       let item = req.user.reminders.find(function (reminder) {
         return reminder.id == req.params["id"];
       });
+      if (item.banner.length < 20){
+        item.banner = await keywordtoImage(`${item.banner}`)
+      }
       res.render("reminder/single-reminder", { reminderItem: item, user: req.user });
     } else {
-      res.render("rem inder/index", { reminders: req.user.reminders, user: req.user });
+      res.render("reminder/index", { reminders: req.user.reminders, user: req.user });
     }
   },
 
-  create: (req, res) => {
+  create: async (req, res) => {
     let reminder = {
       id: req.user.reminders.length + 1,
       title: req.body.title,
       description: req.body.description,
       completed: false,
+      banner: await keywordtoImage(`${req.body.banner}`)
     };
     req.user.reminders.push(reminder);
     res.redirect("/reminders");
@@ -92,6 +103,15 @@ let remindersController = {
     req.user.reminders.splice(req.user.reminders.indexOf(searchResult), 1);
     res.redirect("/reminders");
 
+  },
+
+  logout: (req, res) => {
+    req.logout(function(err){
+      if (err) {
+        return next(err);
+      }
+    res.redirect("/login");
+    });
   },
 };
 
