@@ -44,3 +44,14 @@ Filip Sokic: I worked on the following tasks:
 Tristan Torres: I worked on the following tasks:
 1. Worked on the admin functionality looking and revoking sessions.
 
+------------------------------------------------------------------------------------------------
+April 19 (Bonus)
+
+Raajvir Randhawa: I worked on the following tasks:
+1. Added the banner functionality
+
+Filip Sokic: I worked on the following tasks:
+1. Added the banner functionality
+
+Tristan Torres: I worked on the following tasks:
+1. Added the banner functionality
