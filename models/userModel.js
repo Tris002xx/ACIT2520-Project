@@ -4,7 +4,13 @@ const database = [
     name: "Jimmy Smith",
     email: "jimmy123@gmail.com",
     password: "jimmy123!",
-    reminders: [],
+    reminders: [{
+      id: "1",
+      title: "Feed the dog",
+      description: "Feed the dog before 8pm",
+      completed: false,
+      banner: "water"
+    },],
     role: "admin"
   },
   {

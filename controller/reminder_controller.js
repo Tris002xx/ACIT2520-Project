@@ -40,7 +40,12 @@ let remindersController = {
       if (error) {
         console.log(error);
       }
-      res.redirect("/admin");
+      if (req.user.role === "admin") {
+        res.redirect("/admin");
+      }
+
+      res.render("auth/login");
+
     });
   },
 
